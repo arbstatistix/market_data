@@ -1,0 +1,14 @@
+2026-03-16 13:45:17,360 - CRITICAL - MarketDataAPI - HTTP request failed [POST /apimarketdata/instruments/master]: Invalid URL '/apimarketdata/instruments/master': No scheme supplied. Perhaps you meant https:///apimarketdata/instruments/master?
+2026-03-16 13:45:17,360 - ERROR - MarketDataAPI - Master detail response missing string 'result'
+2026-03-16 13:45:17,360 - ERROR - MarketDataAPI - No data returned from `__master__detail__data__cleaning__`
+2026-03-16 13:59:17,693 - CRITICAL - MarketDataAPI - HTTP request failed [POST /apimarketdata/instruments/master]: Invalid URL '/apimarketdata/instruments/master': No scheme supplied. Perhaps you meant https:///apimarketdata/instruments/master?
+2026-03-16 13:59:17,693 - ERROR - MarketDataAPI - Master detail response missing string 'result'
+2026-03-16 13:59:17,693 - ERROR - MarketDataAPI - No data returned from `__master__detail__data__cleaning__`
+2026-03-16 13:59:32,364 - CRITICAL - MarketDataAPI - HTTP request failed [POST /apimarketdata/instruments/master]: Invalid URL '/apimarketdata/instruments/master': No scheme supplied. Perhaps you meant https:///apimarketdata/instruments/master?
+2026-03-16 13:59:32,364 - ERROR - MarketDataAPI - Master detail response missing string 'result'
+2026-03-16 13:59:32,364 - ERROR - MarketDataAPI - No data returned from `__master__detail__data__cleaning__`
+2026-03-16 13:59:59,101 - INFO - MarketDataAPI - Inserted FUT IDX docs: 30
+2026-03-16 13:59:59,101 - INFO - MarketDataAPI - Inserted FUT STK docs: 1036
+2026-03-16 13:59:59,101 - INFO - MarketDataAPI - Inserted OPT IDX docs: 12274
+2026-03-16 13:59:59,101 - INFO - MarketDataAPI - Inserted OPT STK docs: 91134
+2026-03-16 13:59:59,101 - INFO - MarketDataAPI - Inserted CM docs: 9241

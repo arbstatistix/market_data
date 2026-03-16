@@ -440,6 +440,8 @@ class LoggerBase:
     def http_error(self, msg: str, *args: Any, exc: BaseException | None = None) -> None:
         self.log_exception(LogErrorType.HTTP, msg, *args, exc=exc)
 
+
+
     def permission_error(self, msg: str, *args: Any, exc: BaseException | None = None) -> None:
         self.log_exception(LogErrorType.PERMISSION, msg, *args, exc=exc)
 

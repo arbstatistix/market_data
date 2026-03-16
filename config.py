@@ -148,6 +148,11 @@ class Config:
         }
     }
 
+    REDIS: ClassVar[dict[str,Any]] = {
+        "host": "localhost",
+        "port": "6379",
+    }
+
     MARKET_DATA_API: ClassVar[dict[str, Any]] = {
         "url": "https://eapi.emkayglobal.com",
         "env_file_path": ".env",
