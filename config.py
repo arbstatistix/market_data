@@ -41,7 +41,7 @@ xts_master_detail_collection_info
     Database and collection names for the master-data MongoDB instance
     shipped with XTS.
 
-xts_message_codes
+xts_message_codes/XTS_RESPONSE_CODE_MAP
     Socket/event codes of interest.
 
 subscribe_payload
@@ -139,7 +139,7 @@ class Config:
     _mongo_client: MongoClient | None=field(default=None,
                                             init=False,
                                             repr=False)
-    AUTH: ClassVar[dict[str, Any]] = {
+    AUTH_DETAILS: ClassVar[dict[str, Any]] = {
         "host_lookup_variables": {
             "access_password": "2021HostLookUpAccess",
             "version": "interactive_1.0.1",
@@ -158,40 +158,40 @@ class Config:
         "env_file_path": ".env",
     }
 
-    PRODUCTS: ClassVar[dict[str, dict[str, str]]] = {
-        "Products": {
+    PRODUCT_CONSTANTS: ClassVar[dict[str, dict[str, str]]] = {
+        "products": {
             "PRODUCT_MIS": "MIS",
             "PRODUCT_NRML": "NRML",
         },
-        "Order_types": {
+        "order_types": {
             "ORDER_TYPE_MARKET": "MARKET",
             "ORDER_TYPE_LIMIT": "LIMIT",
             "ORDER_TYPE_STOPMARKET": "STOPMARKET",
             "ORDER_TYPE_STOPLIMIT": "STOPLIMIT",
         },
-        "Transaction_type": {
+        "transaction_types": {
             "TRANSACTION_TYPE_BUY": "BUY",
             "TRANSACTION_TYPE_SELL": "SELL",
         },
-        "Squareoff_mode": {
+        "squareoff_modes": {
             "SQUAREOFF_DAYWISE": "DayWise",
             "SQUAREOFF_NETWISE": "Netwise",
         },
-        "Squareoff_position_quantity_types": {
+        "squareoff_quantity_types": {
             "SQUAREOFFQUANTITY_EXACTQUANTITY": "ExactQty",
             "SQUAREOFFQUANTITY_PERCENTAGE": "Percentage",
         },
-        "Validity": {
+        "validity_types": {
             "VALIDITY_DAY": "DAY",
         },
-        "Exchange_Segments": {
+        "exchange_segments": {
             "EXCHANGE_NSECM": "NSECM",
             "EXCHANGE_NSEFO": "NSEFO",
             "EXCHANGE_NSECD": "NSECD",
             "EXCHANGE_MCXFO": "MCXFO",
             "EXCHANGE_BSECM": "BSECM",
         },
-    }
+}
 
     ROUTES: ClassVar[dict[str, dict[str, str]]] = {
         "interactive_api": {
@@ -261,7 +261,7 @@ class Config:
         "port": "27017",
     }
 
-    XTS_MESSAGE_CODES: ClassVar[tuple[int, ...]] = (
+    XTS_RESPONSE_CODE_MAP: ClassVar[tuple[int, ...]] = (
         1501,
         1502,
         1505,
@@ -270,7 +270,7 @@ class Config:
         1105,
     )
 
-    SUBSCRIBE_PAYLOAD: ClassVar[tuple[dict[str, int], ...]] = (
+    MARKET_SUBSCRIPTION_PAYLOAD: ClassVar[tuple[dict[str, int], ...]] = (
         {"exchangeSegment": 2, "exchangeInstrumentID": 59144},
         {"exchangeSegment": 2, "exchangeInstrumentID": 45308},
         {"exchangeSegment": 2, "exchangeInstrumentID": 44818},
@@ -295,12 +295,12 @@ class Config:
         "port": 27017,
     }
 
-    MONTH_IDX: ClassVar[tuple[str, ...]] = (
+    MONTHS_IDX: ClassVar[tuple[str, ...]] = (
         "", "Jan", "Feb", "Mar", "Apr", "May", "Jun",
         "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
     )
 
-    QUEUE_CONFIG: ClassVar[dict[str, int]] = {
+    QUEUE_SIZE_CONFIG: ClassVar[dict[str, int]] = {
         "max_size": 10_000,
     }
 
@@ -308,16 +308,16 @@ class Config:
         self.env_file_path = self.base_dir / ".env"
 
     @property
-    def auth(self) -> dict[str, Any]:
-        return self.AUTH
+    def auth_details(self) -> dict[str, Any]:
+        return self.AUTH_DETAILS
 
     @property
     def market_data_api(self) -> dict[str, Any]:
         return self.MARKET_DATA_API
 
     @property
-    def products(self) -> dict[str, dict[str, str]]:
-        return self.PRODUCTS
+    def products_constants(self) -> dict[str, dict[str, str]]:
+        return self.PRODUCT_CONSTANTS
 
     @property
     def routes(self) -> dict[str, dict[str, str]]:
@@ -328,24 +328,24 @@ class Config:
         return self.XTS_MASTER_DETAIL_COLLECTION_INFO
 
     @property
-    def xts_message_codes(self) -> tuple[int, ...]:
-        return self.XTS_MESSAGE_CODES
+    def xts_response_code_map(self) -> tuple[int, ...]:
+        return self.XTS_RESPONSE_CODE_MAP
 
     @property
-    def subscribe_payload(self) -> tuple[dict[str, int], ...]:
-        return self.SUBSCRIBE_PAYLOAD
+    def market_subscription_payload(self) -> tuple[dict[str, int], ...]:
+        return self.MARKET_SUBSCRIPTION_PAYLOAD
 
     @property
     def mongodb_config(self) -> dict[str, Any]:
         return self.MONGODB_CONFIG
 
     @property
-    def month_idx(self) -> tuple[str, ...]:
-        return self.MONTH_IDX
+    def months_idx(self) -> tuple[str, ...]:
+        return self.MONTHS_IDX
 
     @property
-    def queue_config(self) -> dict[str, int]:
-        return self.QUEUE_CONFIG
+    def queue_size_config(self) -> dict[str, int]:
+        return self.QUEUE_SIZE_CONFIG
 
     @property
     def mongo_client(self) -> MongoClient:
