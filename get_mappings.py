@@ -86,13 +86,13 @@ from logger import LoggerBase
 dotenv_path = os.path.join(os.path.dirname(__file__), "..", "auth", ".env")
 load_dotenv(dotenv_path=dotenv_path)
 
-API_KEY_MARKET_DATA = os.getenv("API_KEY_MARKET_DATA")
-API_SECRET_MARKET_DATA = os.getenv("API_SECRET_MARKET_DATA")
-SOURCE = os.getenv("SOURCE")
-ROOT_MARKET_DATA = os.getenv("ROOT_MARKET_DATA")
+API_KEY_MARKET_DATA = os.getenv("API_KEY_MARKET_DATA", "")
+API_SECRET_MARKET_DATA = os.getenv("API_SECRET_MARKET_DATA", "")
+SOURCE = os.getenv("SOURCE", "")
+ROOT_MARKET_DATA = os.getenv("ROOT_MARKET_DATA", "")
 ROOT_URL = os.getenv("ROOT_URL", "https://ttblaze.iifl.com")
-UNIQUE_KEY = os.getenv("UNIQUE_KEY")
-SECRET_UNIQUE_KEY = os.getenv("SECRET_UNIQUE_KEY")
+UNIQUE_KEY = os.getenv("UNIQUE_KEY", "")
+SECRET_UNIQUE_KEY = os.getenv("SECRET_UNIQUE_KEY", "")
 
 LOGIN_URL_MARKET_API = f"{ROOT_URL}/apimarketdata/auth/login"
 LOGOUT_URL_MARKET_API = f"{ROOT_URL}/apimarketdata/auth/logout"

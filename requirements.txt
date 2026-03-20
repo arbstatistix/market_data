@@ -1,0 +1,10 @@
+pathlib
+pymongo
+dotenv 
+httpx 
+requests 
+redis
+msgpack
+numpy
+numba
+socketio
